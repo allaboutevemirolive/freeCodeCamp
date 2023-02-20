@@ -1,0 +1,95 @@
+The question is asking you to create a computer program that can calculate what time it will be after adding a certain amount of time to a given start time. 
+
+The start time will be given in a special way: it will be in the 12-hour format, and it will end in either "AM" or "PM". 
+
+The amount of time to add will also be given, and it will be in hours and minutes.
+
+The program should be able to handle a few different cases. For example, it should be able to tell you what time it will be if you start at 3:00 PM and add 3 hours and 10 minutes. The program should also be able to handle an optional starting day of the week, which if provided, should be included in the output.
+
+The output should be in the same format as the input (12-hour clock format ending in AM or PM). If the result is the next day, it should show "(next day)" after the time. If the result is more than one day later, it should show "(n days later)" after the time, where "n" is the number of days later.
+
+The program should not use any special Python libraries to do this, and it should be tested using some provided unit tests.
+
+___
+
+
+This function add_time takes in three arguments: start_time, duration_time, and starting_day. It adds the duration_time to the start_time and returns the new time in a 12-hour clock format.
+
+The start_time and duration_time are strings in the format of "hours:minutes AM/PM". The starting_day is an optional argument that represents the starting day of the week, such as "Monday", "Tuesday", etc.
+
+The function first separates the start_time into hours and minutes using the split() method and the map() function. It also separates the AM/PM indicator and determines if the start time is in the PM. If it is in the PM, the function adds 12 to the start hour to calculate the time in a 24-hour clock format.
+
+The function then separates the duration_time into hours and minutes and adds them to the start time's hours and minutes, respectively. It handles overflow minutes by adding them to the hours and adjusting the minutes. Similarly, it handles overflow hours by adding them to the days and adjusting the hours.
+
+After adding the duration, the function determines if the new hour is in the AM or PM and returns the time in a 12-hour clock format. It also handles the edge case where the new hour is 0 by setting it to 12.
+
+If the starting_day argument is provided, the function determines the day of the week by indexing into a tuple of week days. It calculates the new day by adding the days to the starting day index and taking the modulo 7 to wrap around the week. It then formats the day of the week string.
+
+Finally, the function formats the new time string using an f-string and returns it. The minutes are padded with a leading zero if necessary using the :02d format specifier. If there are any days added, it appends a string indicating "next day" or the number of "days later."
+
+___
+
+
+What is :02d in the python code?
+
+:02d is a string formatting expression used in Python to specify the format of a numeric value. Specifically, the d specifies that the value is an integer, and the 0 means to pad the value with zeroes to a width of 2 characters.
+
+For example, if new_minute has a value of 5, {new_minute:02d} will format the value as "05", with a leading zero to make it two characters wide. 
+
+If new_minute has a value of 35, {new_minute:02d} will format the value as "35", with no padding necessary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
